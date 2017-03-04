@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Checkout | Bertha's</title>
+
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+     
+    <link rel="stylesheet" type="text/css" 
+    href="jquery-ui-1.12.1.custom/jquery-ui.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="home.css" />
+	
+	
+	<script type="text/javascript" src="/jquery/jquery.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="ajax_get_lib.js"></script>
+    <script type="text/javascript" src="ajax_populate_page.js"></script>
+    <script type="text/javascript" src="shopping_cart.js"></script>  
+    <script type="text/javascript" src="checkout.js"></script>                      
+</head>
+
+<body>
+<div id="container">
+	<h1><img src="Images/2.png" alt="Bertha's" width="50px"/> Bertha's Deluxe Chocolates</h1><br/>
+	<div id="menu">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="products.html">Products</a></li>
+			<li><a href="aboutus.html">About Us</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+	</div>
+
+<div id="CheckoutContent">
+<form method="post" name="myform" action="/perl/jadrn041/proj4/checkout.cgi" id="myform">    
+                <table id="details">
+					<tr>
+						<td> <b>Shipping Information:</b></td>
+						<td></td>
+						<td> <b>Billing Information:</b></td><td><input type="checkbox" name="same" id="same" onclick="FillBilling(this.form)"/>Check if same as Shipping Information</td></tr>
+						<tr>
+						<td>Name:</td>
+						<td><input type="text" id="name" name="name"/></td>
+						<td>Name:</td>
+						<td></br><input type="text" id="nameBill" name="nameBill"/></td>
+					</tr>
+					<tr>
+						<td> Address</br>Street:</td>
+						<td></br><input type="text" id="street" name="street"/></br><input type="text" id="street1" name="street1"/></td>
+						<td> Address:</br>Street:</td>
+						<td></br><input type="text" id="streetBill" name="streetBill"/></br><input type="text" id="streetBill1" name="streetBill1"/></td>
+					</tr>
+                    <tr>
+						<td> City:</td>
+						<td><input type="text" id="city" name="city"/></td>
+						<td> City:</td>
+						<td><input type="text" id="cityBill" name="cityBill"/></td>
+					</tr>
+					 <tr>
+						<td> State:</td>
+						<td><input type="text" id="state" name="state"/></td>
+						<td> State:</td>
+						<td><input type="text" id="stateBill" name="stateBill"/></td>
+					</tr>
+					 <tr>
+						<td> Zipcode:</td>
+						<td><input type="text" id="zipcode" name="zipcode" size="5" maxlength="5"/></td>
+						<td> Zipcode:</td>
+						<td><input type="text" id="zipcodeBill" name="zipcodeBill" size="5" maxlength="5"/></td>
+					</tr>
+					 <tr>
+						<td> Contact number:</td>
+						<td><input type="text" id="contact" name="contact" size="10" maxlength="10" placeholder="xxxxxxxxxx""/></td>
+						<td> Contact number:</td>
+						<td><input type="text" id="contactBill" name="contactBill" size="10" maxlength="10" placeholder="xxxxxxxxxx""/></td>
+					</tr>
+					<tr>
+						<td> Credit card type:</td>
+						<td><select name="card">
+								<option name="visa" selected="selected">Visa</option>
+								<option name="master">Master Card</option>
+							</select></td>
+					</tr>
+					<tr>
+						<td> Credit card number:</td>
+					<td><input type="text" id="one" name="one" size="4" maxlength="4"/> - <input type="text" id="two" name="two" size="4" maxlength="4"/> - <input type="text" name="three" id="three" size="4" maxlength="4"/> - <input type="text" name="four" id="four" size="4" maxlength="4"/></td>
+					<td>Price</td><td>$<input type="text" id="total1" readonly="readonly"/><td>
+					</tr>
+					<tr>
+						<td> Expiration date:</td>
+						<td>
+							<select name="month">
+								<option name="jan">Jan</option>
+								<option name="feb">Feb</option>
+								<option name="mar">Mar</option>
+								<option name="apr">Apr</option>
+								<option name="may">May</option>
+								<option name="june">June</option>
+								<option name="july">July</option>
+								<option name="aug">Aug</option>
+								<option name="sept">Sept</option>
+								<option name="oct">Oct</option>
+								<option name="nov">Nov</option>
+								<option name="dec">Dec</option>
+							</select>
+							<select name="year">
+								<option>2017</option>
+								<option>2018</option>
+								<option>2019</option>
+								<option>2020</option>
+								<option>2021</option>
+								<option>2022</option>
+								<option>2023</option>
+								<option>2024</option>
+								<option>2025</option>
+								<option>2026</option>
+								<option>2027</option>
+								<option>2028</option>
+								<option>2029</option>
+								<option>2030</option>
+							</select>
+					Security code:<input type="text" id="sec"  size="3" maxlength="3"/>
+						</td>
+					</tr>
+					<tr>
+			
+            <td><input type="reset" />
+            <input type="submit" value="Place Order" class="btnOrder"/> </td>
+			<div id="message_line">&nbsp;</div><br/>
+        </tr>       
+    </table> 
+</form>       
+</div> 
+    </div>   
+	<div class="footer">&copy; Copyright 2016 BerthasDeluxeChocolates.com</div>     
+</body>
+</html>    
